@@ -87,5 +87,7 @@
     background-color: white;        
     color: rgb(52, 52, 52);
     height: 99%;
+    border: 0px;
+    resize: none;
     text-decoration: none;
 }
