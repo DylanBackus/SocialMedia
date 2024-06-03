@@ -1,8 +1,40 @@
 .home-container{
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
-.per33{
+.main-left{
     width: 25%;
     background-color: red;
     height: 100vh;
+}
+.mid-home{
+    width: 55%;
+    background-color: green;
+}
+.search-area{
+    width: 20%;
+    background-color: aliceblue;
+}
+.pfp{
+    border-radius: 500px;
+    width: 200px;
+}
+.profile-area{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 56px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.profile-icon{
+    width: 52px;
+}
+.max-size{
+    width: 100%;
 }
