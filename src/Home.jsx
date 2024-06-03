@@ -3,6 +3,7 @@ import React from "react";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import HomeLeftSideComponent from "./HomeLeftSideComponent";
+import HomeMidComponent from "./HomeMidComponent";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,11 +24,14 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 const Home = () => {
-    
-    return(
-        <>
-        <HomeLeftSideComponent/>
-        </>
-    )
+
+  return (
+    <>
+      <div className="home-container">
+        <HomeLeftSideComponent />
+        <HomeMidComponent />
+      </div>
+    </>
+  )
 }
 export default Home
