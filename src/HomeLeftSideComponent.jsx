@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import db from './firebase/FirebaseConfig'
-import { doc, getDocFromCache, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 
 const HomeLeftSideComponent = () => {
@@ -20,9 +20,9 @@ const HomeLeftSideComponent = () => {
       console.log("empty");
     }
   }
-  useEffect(() => {
-    getData();
-  },[]);
+ useEffect(() => {
+   getData();
+ },[]);
 
     return (
         <>
@@ -46,6 +46,25 @@ const HomeLeftSideComponent = () => {
                     </div>
                   </div>
                   <div className="friends-area-home">
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                  <p>dskjfnsdk</p>
+                X``
 
                   </div>
                 </div>
