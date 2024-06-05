@@ -9,6 +9,7 @@ const Home = () => {
       <div className="home-container">
         <HomeLeftSideComponent />
         <HomeMidComponent />
+        <HomeRightSideComponent/>
       </div>
     </>
   )
