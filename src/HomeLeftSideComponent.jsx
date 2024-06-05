@@ -3,9 +3,6 @@ import db from './firebase/FirebaseConfig'
 import { doc, getDocFromCache, getDoc } from "firebase/firestore";
 import { useState } from "react";
 
-
- 
- 
 const HomeLeftSideComponent = () => {
 
 
