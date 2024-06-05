@@ -10,7 +10,7 @@ const HomeLeftSideComponent = () => {
 
 
   const [userData, setUserData] = useState(null);
-
+  const userID = ""
   const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG");
   //const usersCollectionRef = collection(db, "users");
 
@@ -24,22 +24,18 @@ const HomeLeftSideComponent = () => {
     }
   }
 
-  useEffect(() => {
-   
-    getData();
-
-  }, [])
-
+  getData();
 
     return (
         <>
             <div className="main-left">
                 <div className="profile-area">
                   <img src="images/placeholder.png" className="pfp"/> 
+                  <p className="home-username">
+                  {userData && userData.username}
+                  </p>
                   <div className="row"> 
                     <div className="profile-icon">
-                      {userData && userData.username
-                      }
                         <a href="profile" className="max-size">
                             <img src="images/user.png"  className="max-size2"/>
                         </a>
