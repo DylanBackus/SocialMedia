@@ -23,8 +23,9 @@ const HomeLeftSideComponent = () => {
       console.log("empty");
     }
   }
-
-  getData();
+  useEffect(() => {
+    getData();
+  },[]);
 
     return (
         <>
@@ -32,7 +33,7 @@ const HomeLeftSideComponent = () => {
                 <div className="profile-area">
                   <img src="images/placeholder.png" className="pfp"/> 
                   <p className="home-username">
-                  {userData && userData.username}
+                  @{userData && userData.username}
                   </p>
                   <div className="row"> 
                     <div className="profile-icon">
@@ -40,12 +41,15 @@ const HomeLeftSideComponent = () => {
                             <img src="images/user.png"  className="max-size2"/>
                         </a>
                         <a href="profile" className="max-size">
-                            <img src="images/user.png"  className="max-size2"/>
+                            <img src="images/bookmark.png"  className="max-size2"/>
                         </a>
                         <a href="profile" className="max-size">
-                            <img src="images/user.png"  className="max-size2"/>
+                            <img src="images/settings.png"  className="max-size2"/>
                         </a>
                     </div>
+                  </div>
+                  <div className="friends-area-home">
+
                   </div>
                 </div>
             </div>
