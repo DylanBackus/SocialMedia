@@ -4,10 +4,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 
 const HomeLeftSideComponent = () => {
-
-
   const [userData, setUserData] = useState(null);
-  const userID = ""
+  const userID = "";
   const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG");
   //const usersCollectionRef = collection(db, "users");
 
