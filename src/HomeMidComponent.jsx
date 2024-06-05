@@ -6,29 +6,32 @@ const HomeMidComponent = () => {
         <>
             <div className="mid-home">
                 <div className="post-container">
-                    <div className="post-section">
-                        <img src="images/placeholder.png" className="pfp-post" />
-                        <textarea className="textarea-post" placeholder="Type Here...">
-
-                        </textarea>
+                    <div className="post-pfp-container">
+                        <div className="pfp-post">
+                            <img src="images/placeholder.png" className="pfp-post" />
+                        </div>
                     </div>
-                    <div className="post-section-attachments">
-                        <div className="attachments">
-
+                    <div className="text-and-attachments-container">
+                        <div className="textarea-container">
+                            <textarea className="textarea-post scroll" placeholder="Type Here..."></textarea>
                         </div>
-                        <div className="attachments">
+                        <div className="post-section-attachments">
+                            <div className="attachments">
+                                <img className="gallery-icon" src="images/gallery-icon-blue.png"></img>
+                            </div>
+                            <div className="attachments">
+                                <img className="gif-icon" src="images/gif-icon-blue.png"></img>
 
-                        </div>
-                        <div className="attachments">
+                            </div>
+                            <div className="attachments">
+                                <img className="polls-icon" src="images/chart-icon-blue.png"></img>
 
-                        </div>
-                        <div className="attachments">
+                            </div>
+                            <div className="attachments">
+                                <img className="gallery-icon" src="images/gallery-icon-blue.png"></img>
 
-                        </div>
-                        <div className="post-button-container">
-                            <a className="post-button">
-                                Post
-                            </a>
+                            </div>
+                            <a className="post-button">Post</a>
                         </div>
                     </div>
                 </div>
