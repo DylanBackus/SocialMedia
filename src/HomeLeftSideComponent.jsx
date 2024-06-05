@@ -1,18 +1,25 @@
 import React from "react";
 import db from './firebase/FirebaseConfig'
 import { doc, getDocFromCache, getDoc } from "firebase/firestore";
+import { useState } from "react";
 
 
-const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG",);
-const docSnap = await getDoc(docRef);
+const fetchData = async () => {
+  const [userData, setUserData] = useState();
 
-if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-  console.log(docSnap.data(1))
-} else {
-  // docSnap.data() will be undefined in this case
-  console.log("No such document!");
+  const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG",);
+  const docSnap = await getDoc(docRef);
+  
+  if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
+    setUserData(docSnap.data())
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log("No such document!");
+  }
 }
+fetchData();
+
 const HomeLeftSideComponent = () => {
 
     return (
