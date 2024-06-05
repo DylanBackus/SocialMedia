@@ -1,26 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import db from './firebase/FirebaseConfig'
 import { doc, getDocFromCache, getDoc } from "firebase/firestore";
 import { useState } from "react";
 
 
-const fetchData = async () => {
-  const [userData, setUserData] = useState();
-
-  const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG",);
-  const docSnap = await getDoc(docRef);
-  
-  if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
-    setUserData(docSnap.data())
-  } else {
-    // docSnap.data() will be undefined in this case
-    console.log("No such document!");
-  }
-}
-fetchData();
-
+ 
+ 
 const HomeLeftSideComponent = () => {
+
+
+  const [userData, setUserData] = useState(null);
+
+  const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG");
+  //const usersCollectionRef = collection(db, "users");
+
+  const getData = async () => {
+    const data = await getDoc(docRef);
+    if (data.exists()) {
+      setUserData(data.data());
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("empty");
+    }
+  }
+
+  useEffect(() => {
+   
+    getData();
+
+  }, [])
+
 
     return (
         <>
@@ -29,6 +38,8 @@ const HomeLeftSideComponent = () => {
                   <img src="images/placeholder.png" className="pfp"/> 
                   <div className="row"> 
                     <div className="profile-icon">
+                      {userData && userData.username
+                      }
                         <a href="profile" className="max-size">
                             <img src="images/user.png"  className="max-size2"/>
                         </a>
