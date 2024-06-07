@@ -167,6 +167,11 @@
     height: 20px;
 }
 
+.location-icon{
+    width: 25px;
+    height: 25px;
+}
+
 .post-button {
     display: flex;
     flex-direction: column;

@@ -1,4 +1,6 @@
 import React from "react";
+import db from './firebase/FirebaseConfig'
+import { doc, getDoc } from "firebase/firestore";
 
 const HomeMidComponent = () => {
 
@@ -28,7 +30,7 @@ const HomeMidComponent = () => {
 
                             </div>
                             <div className="attachments">
-                                <img className="gallery-icon" src="images/gallery-icon-blue.png"></img>
+                                <img className="location-icon" src="images/location-icon-blue.png"></img>
 
                             </div>
                             <a className="post-button">Post</a>
