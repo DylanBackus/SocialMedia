@@ -26,7 +26,7 @@ const HomeLeftSideComponent = () => {
         <>
             <div className="main-left">
                 <div className="profile-area">
-                  <img src="images/placeholder.png" className="pfp"/> 
+                  <img src="images/placeholder2.png" className="pfp"/> 
                   <p className="home-username">
                   @{userData && userData.username}
                   </p>
@@ -44,26 +44,15 @@ const HomeLeftSideComponent = () => {
                     </div>
                   </div>
                   <div className="friends-area-home">
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                  <p>dskjfnsdk</p>
-                X``
-
+                    <div className="friends-container">
+                      <div className="friends-left">
+                        <img src="../images/placeholder2.png" className="pfp-friendslist" />
+                      </div>
+                      <div className="friends-right">
+                        <p className="friend-name">AzizDjan</p>
+                        <p className="friend-status">This is A status</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
