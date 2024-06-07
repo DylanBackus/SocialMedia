@@ -11,8 +11,9 @@
 
 .main-left {
     width: 25%;
-    background-color: red;
+    background-color: #E2E2E2;
     height: 100vh;
+    position: relative;
 }
 
 .mid-home {
@@ -190,11 +191,13 @@
     transition: 0.5s;
 }
 .friends-area-home{
-    background-color: green;
+    background-color: #E2E2E2;
     width: 100%;
     height: 300px;
-    align-self: flex-end;
+    margin-top: auto;
     overflow-y: scroll;
+    position: absolute;
+    bottom: 0;
     overflow-x: hidden;
 }
 
@@ -255,4 +258,43 @@
     color: #ffff;
     font-size: 15px;
     font-weight: 600;
+  }
+  .friends-container{
+    width: 100%;
+    height: 85px;
+    display: flex;
+    background-color: #E2E2E2;
+    flex-direction: row;
+    transition-duration: 0.2s;
+  }
+  .friends-container:hover{
+    background-color: #998686;
+  }
+  .pfp-friendslist{
+    width: 100%;
+    border-radius: 50px;
+  }
+  .friends-left{
+    width: 60px;
+    margin-left: 12px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .friends-right{
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 12px;
+  }
+  .friend-name{
+    font-weight: 700;
+  }
+  .friend-status{
+    color: #979797;
   }
