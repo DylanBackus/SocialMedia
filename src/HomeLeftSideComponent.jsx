@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import db from './firebase/FirebaseConfig'
+import { db, auth } from './firebase/FirebaseConfig';
 import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 
@@ -8,7 +8,6 @@ const HomeLeftSideComponent = () => {
   const userID = "";
   const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG");
   //const usersCollectionRef = collection(db, "users");
-
   const getData = async () => {
     const data = await getDoc(docRef);
     if (data.exists()) {
@@ -21,6 +20,7 @@ const HomeLeftSideComponent = () => {
  useEffect(() => {
    getData();
  },[]);
+
 
     return (
         <>
@@ -45,12 +45,14 @@ const HomeLeftSideComponent = () => {
                   </div>
                   <div className="friends-area-home">
                     <div className="friends-container">
+                      
                       <div className="friends-left">
                         <img src="../images/placeholder2.png" className="pfp-friendslist" />
                       </div>
                       <div className="friends-right">
-                        <p className="friend-name">AzizDjan</p>
-                        <p className="friend-status">This is A status</p>
+                        <a href="#" className="friend-button">
+                        <p className="friend-name">@Username</p>
+                        </a>
                       </div>
                     </div>
                   </div>
