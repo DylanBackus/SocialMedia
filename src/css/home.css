@@ -21,7 +21,7 @@
     flex-direction: column;
     align-items: center;
     width: 55%;
-    background-color: #D0D0D0;
+    background-color: #1C1D21;
 }
 
 .search-area {
@@ -78,15 +78,17 @@
     height: 250px;
     margin-top: 56px;
     border-radius: 10px;
-    background-color: white;
+    background-color: #404557;
 }
-.home-username{
+
+.home-username {
     font-weight: 700;
     font-size: 24px;
     color: black;
     margin-top: 12px;
     margin-bottom: 12px;
 }
+
 .post-pfp-container {
     display: flex;
     flex-direction: column;
@@ -123,12 +125,18 @@
 
 .textarea-post {
     width: 80%;
-    background-color: white;
-    color: rgb(52, 52, 52);
+    background-color: #404557;
+    color: #FFFFFF;
     height: 99%;
     border: 0px;
     resize: none;
     text-decoration: none;
+    outline: none; /* Verwijdert de focus outline */
+}
+
+.textarea-post:focus {
+    outline: none;
+    border: none;
 }
 
 .scroll::-webkit-scrollbar {
@@ -154,23 +162,31 @@
     height: 70px;
 }
 
-.gallery-icon{
-    width: 30px;
-    height: 30px;}
-
-.gif-icon{
+.gallery-icon {
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 
-.polls-icon{
-    width: 20px;
-    height: 20px;
-}
-
-.location-icon{
+.gif-icon {
     width: 25px;
     height: 25px;
+    cursor: pointer;
+
+}
+
+.polls-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
+}
+
+.location-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
 }
 
 .post-button {
@@ -178,24 +194,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
- 
+
     width: 20%;
     height: 40px;
     border-radius: 10px;
     margin-left: 100px;
- 
+
     cursor: pointer;
     background-color: black;
     color: white;
     border: solid 1px black;
 }
- 
-.post-button:hover{
-    background-color: white;
-    color: black;
+
+.post-button:hover {
+    background-color: black;
+    color: white;
     transition: 0.5s;
 }
-.friends-area-home{
+
+.friends-area-home {
     background-color: #E2E2E2;
     width: 100%;
     height: 300px;
@@ -207,7 +224,7 @@
 }
 
 /*RIGHT SIDE */
-.right-home{
+.right-home {
     width: 25%;
     height: 100vh;
 
@@ -216,7 +233,7 @@
     flex-direction: column;
 }
 
-.right-home-search{
+.right-home-search {
     margin-left: 15px;
     margin-top: 15px;
     padding-left: 15px;
@@ -230,7 +247,7 @@
     font-size: 14px;
 }
 
-.daily-trends-main-container{
+.daily-trends-main-container {
     margin-left: 15px;
     margin-top: 15px;
     padding-left: 15px;
@@ -242,7 +259,7 @@
     border-radius: 10px;
 }
 
-.daily-trends{
+.daily-trends {
     margin-top: 5px;
     margin-left: 0px;
 
@@ -250,7 +267,7 @@
     font-size: 30px;
 }
 
-.daily-trends-container{
+.daily-trends-container {
     width: 100%;
     height: 88%;
 
@@ -258,28 +275,32 @@
     overflow-y: scroll;
 }
 
-.test{
+.test {
     background-color: #0000;
     color: #ffff;
     font-size: 15px;
     font-weight: 600;
-  }
-  .friends-container{
+}
+
+.friends-container {
     width: 100%;
     height: 85px;
     display: flex;
     background-color: #E2E2E2;
     flex-direction: row;
     transition-duration: 0.2s;
-  }
-  .friends-container:hover{
+}
+
+.friends-container:hover {
     background-color: #998686;
-  }
-  .pfp-friendslist{
+}
+
+.pfp-friendslist {
     width: 100%;
     border-radius: 50px;
-  }
-  .friends-left{
+}
+
+.friends-left {
     width: 60px;
     margin-left: 12px;
     height: 100%;
@@ -287,8 +308,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .friends-right{
+}
+
+.friends-right {
     width: 100%;
     color: black;
     display: flex;
@@ -296,10 +318,12 @@
     justify-content: center;
     align-items: flex-start;
     margin-left: 12px;
-  }
-  .friend-name{
+}
+
+.friend-name {
     font-weight: 700;
-  }
-  .friend-status{
+}
+
+.friend-status {
     color: #979797;
-  }
+}
