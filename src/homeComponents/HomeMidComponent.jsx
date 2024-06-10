@@ -19,19 +19,18 @@ const HomeMidComponent = () => {
                         </div>
                         <div className="post-section-attachments">
                             <div className="attachments">
-                                <img className="gallery-icon" src="images/gallery-icon-blue.png"></img>
+                                <img className="gallery-icon" src="images/gallery.png"></img>
                             </div>
                             <div className="attachments">
-                                <img className="gif-icon" src="images/gif-icon-blue.png"></img>
+                                <img className="gif-icon" src="images/gif.png"></img>
 
                             </div>
                             <div className="attachments">
-                                <img className="polls-icon" src="images/chart-icon-blue.png"></img>
+                                <img className="polls-icon" src="images/chart.png"></img>
 
                             </div>
                             <div className="attachments">
-                                <img className="location-icon" src="images/location-icon-blue.png"></img>
-
+                                <img className="location-icon" src="images/pin.png"></img>
                             </div>
                             <a className="post-button">Post</a>
                         </div>
