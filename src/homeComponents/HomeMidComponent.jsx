@@ -1,5 +1,5 @@
 import React from "react";
-import db from './firebase/FirebaseConfig'
+import { db, auth } from '../firebase/FirebaseConfig';
 import { doc, getDoc } from "firebase/firestore";
 
 const HomeMidComponent = () => {

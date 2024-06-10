@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { db, auth } from './firebase/FirebaseConfig';
+import { db, auth } from '../firebase/FirebaseConfig';
 import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 
@@ -20,6 +20,7 @@ const HomeLeftSideComponent = () => {
  useEffect(() => {
    getData();
  },[]);
+
 
 
     return (
@@ -55,6 +56,7 @@ const HomeLeftSideComponent = () => {
                         </a>
                       </div>
                     </div>
+                    
                   </div>
                 </div>
             </div>

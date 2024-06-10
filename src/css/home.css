@@ -31,7 +31,7 @@
 
 .pfp {
     border-radius: 500px;
-    width: 200px;
+    width: 150px;
 }
 
 .profile-area {
@@ -207,15 +207,24 @@
 }
 .friends-area-home{
     background-color: #404557;
-    width: 100%;
-    height: 300px;
+    width: 85%;
+    border-radius: 20px;
+    height: 400px;
     margin-top: auto;
     overflow-y: scroll;
     position: absolute;
     bottom: 0;
     overflow-x: hidden;
 }
-
+.friends-area-home::-webkit-scrollbar-thumb {
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;  
+  }
+  
+  .friends-area-home::-webkit-scrollbar {
+    width: 16px;
+  }
 /*RIGHT SIDE */
 .right-home{
     width: 25%;
@@ -280,11 +289,10 @@
     display: flex;
     background-color: #404557;
     flex-direction: row;
+
     transition-duration: 0.2s;
   }
-  .friends-container:hover{
-    background-color: #998686;
-  }
+
   .pfp-friendslist{
     width: 100%;
     border-radius: 50px;
