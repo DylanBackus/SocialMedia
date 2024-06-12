@@ -369,11 +369,13 @@
     flex-direction: column;
 }
 .inputField{
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-radius: 5px;
     background-color: #2A2D39;
     border: 0px;
+    width: 250px;
+    height: 19px;   
 }
