@@ -5,6 +5,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Home from './homeComponents/Home'
 import SignUp from './SignUp'
+import LogIn from './LogIn'
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<LogIn />} />
       </Routes>
     </div>
     </>

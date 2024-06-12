@@ -8,7 +8,7 @@ const SignUp = () => {
 
 
     const SignUpFunc = () => {
-        createUserWithEmailAndPassword(auth, email, username, password)
+        createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
