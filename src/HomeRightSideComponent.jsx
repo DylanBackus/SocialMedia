@@ -6,29 +6,23 @@ const HomeRightSideComponent = () => {
       <div className="right-home">
         <input className="right-home-search" placeholder="Type Here..."></input>
         <div className="daily-trends-main-container">
-          <h1 className="daily-trends">Daily Trends</h1>
+          <a className="daily-trends">Daily Trends</a>
           <div className="daily-trends-container">
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
-            <h1 className="test">TEST TEST</h1>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
+            <a className="test">TEST</a>
           </div>
         </div>
       </div>
