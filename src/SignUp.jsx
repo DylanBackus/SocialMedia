@@ -35,7 +35,7 @@ const SignUp = () => {
               className="inputField"
             />
             <label htmlFor="html">Username</label>
-            <input
+            <input  
               type="text"
               className="inputField"
             />
@@ -46,7 +46,7 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="inputField"
             />
-            <button type="submit">
+            <button type="submit" className="submitB">
               sign up
             </button>
           </form>
