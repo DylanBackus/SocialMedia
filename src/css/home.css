@@ -2,6 +2,7 @@
     font-family: Inter;
 }
 
+
 .home-container {
     width: 100%;
     display: flex;
@@ -10,8 +11,9 @@
 
 .main-left {
     width: 25%;
-    background-color: red;
+    background-color: #2A2D39;
     height: 100vh;
+    position: relative;
 }
 
 .mid-home {
@@ -19,7 +21,7 @@
     flex-direction: column;
     align-items: center;
     width: 55%;
-    background-color: green;
+    background-color: #1C1D21;
 }
 
 .search-area {
@@ -29,7 +31,7 @@
 
 .pfp {
     border-radius: 500px;
-    width: 200px;
+    width: 150px;
 }
 
 .profile-area {
@@ -68,71 +70,131 @@
 .max-size2 {
     width: 50%;
 }
-
 .post-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 90%;
     height: 250px;
     margin-top: 56px;
     border-radius: 10px;
-    background-color: white;
+    background-color: #404557;
 }
 .home-username{
-    font-weight: 700;
+    font-weight: 500;
     font-size: 24px;
-    color: black;
+    color: white;
     margin-top: 12px;
     margin-bottom: 12px;
 }
-.post-section {
+.friend-button{
+    background-color: black;
+    width: 60%;
+    height: 54px;
+    font-size: 16px;
+    color: white;
+    border-radius: 12px;
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 170px;
-    padding-top: 20px;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.post-pfp-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 10%;
+    height: 250px;
+
 }
 
 .pfp-post {
-    margin-left: 10px;
     border-radius: 500px;
-    width: 60px;
-    height: 60px;
+    padding: 2px;
+    width: 90%;
+}
+
+.text-and-attachments-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.textarea-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    height: 170px;
+    margin-top: 20px;
 }
 
 .textarea-post {
     width: 80%;
-    margin-left: 20px;
-    background-color: white;
-    color: rgb(52, 52, 52);
+    background-color: #404557;
+    color: #FFFFFF;
     height: 99%;
     border: 0px;
     resize: none;
     text-decoration: none;
+    outline: none; /* Verwijdert de focus outline */
+}
+
+.textarea-post:focus {
+    outline: none;
+    border: none;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
 }
 
 .post-section-attachments {
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 50px;
+
     width: 100%;
+    height: 70px;
+
 }
 
 .attachments {
-    width: 8%;
-    height: 60px;
-    margin-left: 50px;
-    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 70px;
 }
 
-.post-button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+.gallery-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
 
-    width: 100%;
-    padding-right: 30px;
+.gif-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
+}
+
+.polls-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
+}
+
+.location-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
 }
 
 .post-button {
@@ -144,6 +206,7 @@
     width: 20%;
     height: 40px;
     border-radius: 10px;
+    margin-left: 100px;
 
     cursor: pointer;
     background-color: black;
@@ -151,19 +214,33 @@
     border: solid 1px black;
 }
 
-.post-button:hover{
-    background-color: white;
-    color: black;
+.post-button:hover {
+    background-color: black;
+    color: white;
     transition: 0.5s;
 }
 .friends-area-home{
-    background-color: green;
-    width: 100%;
-    height: 100%;
+    background-color: #404557;
+    width: 85%;
+    border-radius: 20px;
+    height: 400px;
+    margin-top: auto;
+    overflow-y: scroll;
+    position: absolute;
+    bottom: 0;
+    overflow-x: hidden;
 }
-
+.friends-area-home::-webkit-scrollbar-thumb {
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;  
+  }
+  
+  .friends-area-home::-webkit-scrollbar {
+    width: 16px;
+  }
 /*RIGHT SIDE */
-.right-home{
+.right-home {
     width: 25%;
     height: 100vh;
 
@@ -172,7 +249,7 @@
     flex-direction: column;
 }
 
-.right-home-search{
+.right-home-search {
     margin-left: 15px;
     margin-top: 15px;
     padding-left: 15px;
@@ -186,7 +263,7 @@
     font-size: 14px;
 }
 
-.daily-trends-main-container{
+.daily-trends-main-container {
     margin-left: 15px;
     margin-top: 15px;
     padding-left: 15px;
@@ -198,15 +275,15 @@
     border-radius: 10px;
 }
 
-.daily-trends{
-    margin-top: 15px;
+.daily-trends {
+    margin-top: 5px;
     margin-left: 0px;
 
     color: #FFFF;
     font-size: 30px;
 }
 
-.daily-trends-container{
+.daily-trends-container {
     width: 100%;
     height: 88%;
 
@@ -216,9 +293,87 @@
     overflow-y: scroll;
 }
 
-.test{
+.test {
     background-color: #0000;
     color: #ffff;
     font-size: 15px;
-    font-weight: 600;
+}
+
+.friends-container {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    background-color: #404557;
+    flex-direction: row;
+
+    transition-duration: 0.2s;
   }
+
+  .pfp-friendslist{
+    width: 100%;
+    border-radius: 50px;
+}
+
+.friends-left {
+    width: 60px;
+    margin-left: 30px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.friends-right {
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12px;
+}
+
+.friend-name {
+    font-weight: 700;
+}
+
+.friend-status {
+    color: #979797;
+}
+
+
+/* signUpScreen */
+
+.signUpbg{
+    width: 100%;
+    height: 100vh;
+    background-color: rebeccapurple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signUpContainer{
+    width: 35%;
+    height: 80%;
+    background-color: red;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.signInForm{
+    display: flex;
+    flex-direction: column;
+}
+.inputField{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    background-color: #2A2D39;
+    border: 0px;
+}
