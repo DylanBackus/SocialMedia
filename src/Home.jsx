@@ -1,8 +1,8 @@
 import React from "react";
-import HomeLeftSideComponent from "./HomeLeftSideComponent";
-import HomeMidComponent from "./HomeMidComponent";
-import HomeRightSideComponent from "./HomeRightSideComponent";
-import { db, auth } from '../firebase/FirebaseConfig';
+import HomeLeftSideComponent from "HomeLeftSideComponent";
+import HomeMidComponent from "HomeMidComponent";
+import HomeRightSideComponent from "HomeRightSideComponent";
+import { db, auth } from 'firebase/FirebaseConfig';
 import { onAuthStateChanged } from "firebase/auth";
 const Home = () => {
   onAuthStateChanged(auth, (user) => {
@@ -11,8 +11,6 @@ const Home = () => {
       // https://firebase.google.com/docs/reference/js/auth.user
       const uid = user.uid;
       // ...
-    } else {
-      window.location = "signup"
     }
   });
   return (
