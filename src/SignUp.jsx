@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile  } from "firebase/auth";
 import { auth, db } from "./firebase/FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore"; 
-const SignUp = () => {
+
+const SignUp = () => {    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
-    const writeUserData = async (mail, uid, user) => {
+    const [profilePic, setProfilePic] = useState("")
+    const writeUserData = async (mail, uid, user, pfp) => {
         console.log("executing func...")
             await setDoc(doc(db, "users", uid), {
                 email: mail,
-                name: user
+                name: user,
+                profilePicture: profilePic,
+
             });
             console.log("Data saved successfully!");
     };
@@ -22,13 +26,14 @@ const SignUp = () => {
             const user = userCredential.user;
             console.log("updating prof..")
             updateProfile(user, {
-                displayName: username
+                displayName: username,
+                photoURL: profilePic
               })
               console.log("done")
             const dname = username;
             const mail = user.email;
             const uid = user.uid;
-            writeUserData(mail, uid, dname);
+            writeUserData(mail, uid, dname, pfp);
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -66,6 +71,7 @@ const SignUp = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             className="inputField"
                         />
+                        <input type="file" />
                         <button type="submit" className="submitButton">
                             Sign Up
                         </button>
