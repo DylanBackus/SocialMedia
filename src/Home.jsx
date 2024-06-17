@@ -11,6 +11,8 @@ const Home = () => {
       // https://firebase.google.com/docs/reference/js/auth.user
       const uid = user.uid;
       // ...
+    } else {
+      window.location = "signup"
     }
   });
   return (
