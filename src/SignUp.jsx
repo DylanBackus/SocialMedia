@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile  } from "firebase/auth";
-import { auth, db } from "./firebase/FirebaseConfig";
+import { auth, db, storage } from "./firebase/FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore"; 
+import { ref, uploadBytes } from "firebase/storage";
+
 
 const SignUp = () => {    
     const [email, setEmail] = useState("");
@@ -18,9 +20,13 @@ const SignUp = () => {
             });
             console.log("Data saved successfully!");
     };
-
+    const handleChange = (event) => {
+        setProfilePic(event.target.files[0])
+    }
     const SignUpFunc = (event) => {
         event.preventDefault(); 
+        console.log(profilePic)
+
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
@@ -71,7 +77,7 @@ const SignUp = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             className="inputField"
                         />
-                        <input type="file" />
+                        <input type="file" onChange={handleChange}/>
                         <button type="submit" className="submitButton">
                             Sign Up
                         </button>
