@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile  } from "firebase/auth";
 import { auth, db } from "./firebase/FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore"; 
-
 const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const writeUserData = async (mail, uid) => {
+    const [username, setUsername] = useState("");
+    const writeUserData = async (mail, uid, user) => {
+        console.log("executing func...")
             await setDoc(doc(db, "users", uid), {
                 email: mail,
-                name: ""
+                name: user
             });
             console.log("Data saved successfully!");
     };
@@ -18,15 +19,21 @@ const SignUp = () => {
         event.preventDefault(); 
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed up
             const user = userCredential.user;
+            console.log("updating prof..")
+            updateProfile(user, {
+                displayName: username
+              })
+              console.log("done")
+            const dname = username;
             const mail = user.email;
             const uid = user.uid;
-            writeUserData(mail, uid);
+            writeUserData(mail, uid, dname);
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(errorMessage)
         });
     };
 
@@ -48,6 +55,7 @@ const SignUp = () => {
                         <input  
                             type="text"
                             id="username"
+                            onChange={(e) => setUsername(e.target.value)}
                             className="inputField"
                         />
                         <label htmlFor="password">Password</label>

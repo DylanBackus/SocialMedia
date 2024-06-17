@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { db, auth } from '../firebase/FirebaseConfig';
 import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
-
+import { signOut } from "firebase/auth";
 const HomeLeftSideComponent = () => {
   const [userData, setUserData] = useState(null);
   const [userID, setUserID] = useState();
@@ -22,16 +22,24 @@ const HomeLeftSideComponent = () => {
     getData();
   }, []);
 
+  const LogOut = async () => {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
 
 
   if (user !== null) {
     const uid = user.uid;
-    console.log(uid)
+    console.log(user)
   }
   return (
     <>
       <div className="main-left">
         <div className="profile-area">
+          <button onClick={LogOut}> LOG OUT GANG</button>
           <img src="images/placeholder2.png" className="pfp" />
           <p className="home-username">
             @{user && user.uid}
