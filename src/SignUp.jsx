@@ -1,42 +1,85 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase/FirebaseConfig";
-import { useState } from "react";
-const SignUp = () => {
-    const SignUpFunc = async() => {
-        const email = document.getElementById("mail").value;
-        const password = document.getElementById("password").value;
+import React, { useState } from "react";
+import { createUserWithEmailAndPassword, updateProfile  } from "firebase/auth";
+import { auth, db } from "./firebase/FirebaseConfig";
+import { doc, setDoc } from "firebase/firestore"; 
+
+const SignUp = () => {    
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [profilePic, setProfilePic] = useState("")
+    const writeUserData = async (mail, uid, user, pfp) => {
+        console.log("executing func...")
+            await setDoc(doc(db, "users", uid), {
+                email: mail,
+                name: user,
+                profilePicture: profilePic,
+
+            });
+            console.log("Data saved successfully!");
+    };
+
+    const SignUpFunc = (event) => {
+        event.preventDefault(); 
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed up 
-          const user = userCredential.user;
-          // ...
+            const user = userCredential.user;
+            console.log("updating prof..")
+            updateProfile(user, {
+                displayName: username,
+                photoURL: profilePic
+              })
+              console.log("done")
+            const dname = username;
+            const mail = user.email;
+            const uid = user.uid;
+            writeUserData(mail, uid, dname, pfp);
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // ..
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage)
         });
+    };
 
-    }
-    
-    return(
+    return (
         <>
-        <div className="signUpbg">
-            <div className="signUpContainer">
-                <h2>Sign Up</h2>
-                <form action="#" className="signInForm">
-                    <label htmlFor="html">Email address</label>
-                    <input type="email" className="inputField" id="mail"/>
-                    <label htmlFor="html">Username</label>
-                    <input type="text" className="inputField" id="username"/>
-                    <label htmlFor="html">password</label>
-                    <input type="pass" className="inputField" id="password"/>
-                    <button type="button" onClick={SignUpFunc()} >sign up</button>
-                </form>
-                
+            <div className="signUpbg">
+                <div className="signUpContainer">
+                    <h2>Sign Up</h2>
+                    <form onSubmit={SignUpFunc} className="signInForm">
+                        <label htmlFor="email">Email address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="inputField"
+                        />
+                        <label htmlFor="username">Username</label>
+                        <input  
+                            type="text"
+                            id="username"
+                            onChange={(e) => setUsername(e.target.value)}
+                            className="inputField"
+                        />
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="inputField"
+                        />
+                        <input type="file" />
+                        <button type="submit" className="submitButton">
+                            Sign Up
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
         </>
-    )
-}
-export default SignUp
+    );
+};
+
+export default SignUp;
