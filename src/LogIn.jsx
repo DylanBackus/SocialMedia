@@ -12,6 +12,7 @@ const LogIn = () => {
     const { setUser } = useUser();
     const navigate = useNavigate();
 
+    
     const handleSubmit = (event) => {
         event.preventDefault();
 
