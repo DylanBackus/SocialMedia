@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { db, auth, storage } from "../firebase/FirebaseConfig";
+import { db, auth, storage } from "firebase/FirebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
-import { ref, uploadBytes } from "../firebase/storage";
+import { ref, uploadBytes } from "firebase/storage";
 
 const HomeMidComponent = () => {
   const [file, setFile] = useState("");
