@@ -10,12 +10,12 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
     const [profilePic, setProfilePic] = useState("")
-    const writeUserData = async (mail, uid, user, pfp) => {
+    const writeUserData = async (mail, uid, user) => {
         console.log("executing func...")
             await setDoc(doc(db, "users", uid), {
                 email: mail,
                 name: user,
-                profilePicture: profilePic,
+                profilePicture: profilePic.name,
 
             });
             console.log("Data saved successfully!");
@@ -33,13 +33,13 @@ const SignUp = () => {
             console.log("updating prof..")
             updateProfile(user, {
                 displayName: username,
-                photoURL: profilePic
+                photoURL: profilePic.name
               })
               console.log("done")
             const dname = username;
             const mail = user.email;
             const uid = user.uid;
-            writeUserData(mail, uid, dname, pfp);
+            writeUserData(mail, uid, dname);
         })
         .catch((error) => {
             const errorCode = error.code;

@@ -1,13 +1,42 @@
 import React, { useEffect } from "react";
-import { db, auth } from '../firebase/FirebaseConfig';
+import { db, auth, storage } from '../firebase/FirebaseConfig';
 import { doc, getDoc } from "firebase/firestore";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
+import { ref, getDownloadURL } from "firebase/storage";
+
 const HomeLeftSideComponent = () => {
   const [userData, setUserData] = useState(null);
   const [userID, setUserID] = useState();
+const [pfpRef, setPfpRef] = useState();
+
   const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG");
   const user = auth.currentUser;
+  
+  const getImage = () => {
+    console.log(storage);
+    getDownloadURL(ref(storage, `./files/placeholder.png`))
+    .then((url) => {
+      // `url` is the download URL for 'images/stars.jpg'
+  
+      // This can be downloaded directly:
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = (event) => {
+        const blob = xhr.response;
+      };
+      xhr.open('GET', url);
+      xhr.send();
+  
+      setPfpRef(url);
+      console.log(url);
+    })
+    .catch((error) => {
+      // Handle any errors
+      console.log(error);
+    });
+  }
+
   //const usersCollectionRef = collection(db, "users");
   const getData = async () => {
     const data = await getDoc(docRef);
@@ -20,6 +49,7 @@ const HomeLeftSideComponent = () => {
   }
   useEffect(() => {
     getData();
+    getImage();
   }, []);
 
   const LogOut = async () => {
@@ -31,6 +61,7 @@ const HomeLeftSideComponent = () => {
   }
 
 
+  
   if (user !== null) {
     const uid = user.uid;
     console.log(user)
@@ -40,7 +71,7 @@ const HomeLeftSideComponent = () => {
       <div className="main-left">
         <div className="profile-area">
           <button onClick={LogOut}> LOG OUT GANG</button>
-          <img src="images/placeholder2.png" className="pfp" />
+          <img src={pfpRef} className="pfp" />
           <p className="home-username">
             @{user && user.uid}
           </p>
