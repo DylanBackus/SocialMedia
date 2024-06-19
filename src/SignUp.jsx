@@ -15,7 +15,7 @@ const SignUp = () => {
             await setDoc(doc(db, "users", uid), {
                 email: mail,
                 name: user,
-                profilePicture: profilePic,
+                profilePicture: profilePic.name,
 
             });
             console.log("Data saved successfully!");
@@ -33,7 +33,7 @@ const SignUp = () => {
             console.log("updating prof..")
             updateProfile(user, {
                 displayName: username,
-                photoURL: profilePic
+                photoURL: profilePic.name
               })
               console.log("done")
             const dname = username;
