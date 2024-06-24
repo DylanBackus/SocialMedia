@@ -72,7 +72,7 @@ const HomeLeftSideComponent = () => {
           <button onClick={LogOut}> LOG OUT GANG</button>
           <img src={pfpRef} className="pfp" />
           <p className="home-username">
-            @{!user.uid ? '...' : user.uid}
+            @
           </p>
           <div className="row">
             <div className="profile-icon">
