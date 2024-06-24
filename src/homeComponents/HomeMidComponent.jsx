@@ -5,6 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const HomeMidComponent = () => {
   const [file, setFile] = useState("");
+  const [userID, setUserID] = useState();
 
   // progress
   const [percent, setPercent] = useState(0);
@@ -19,7 +20,8 @@ const HomeMidComponent = () => {
       alert("Please upload an image first!");
     }
 
-    const storageRef = ref(storage, `/files/${file.name}`);
+    // const storageRef = ref(storage, `/files/${file.name}`);
+    const storageRef = ref(storage, `/files/${userID}/${file.name}`);
 
     // progress can be paused and resumed. It also exposes progress updates.
     // Receives the storage reference and the file to upload.
@@ -56,9 +58,11 @@ const HomeMidComponent = () => {
           </div>
           <div className="text-and-attachments-container">
             <div className="textarea-container">
-              <div>
-                <input type="file" onChange={handleChange} accept="/image/*" />
-              </div>
+              <textarea
+                className="textarea-post scroll"
+                placeholder="Type Here..."
+              ></textarea>
+              <input type="file" onChange={handleChange} accept="/image/*" />
             </div>
             <div className="post-section-attachments">
               <div className="attachments">
@@ -74,7 +78,9 @@ const HomeMidComponent = () => {
                 <img className="location-icon" src="images/pin.png"></img>
               </div>
               <p>{percent} "% done"</p>
-              <a className="post-button" onClick={handleUpload}>Post</a>
+              <a className="post-button" onClick={handleUpload}>
+                Post
+              </a>
             </div>
           </div>
         </div>

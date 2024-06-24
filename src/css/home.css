@@ -70,6 +70,7 @@
 .max-size2 {
     width: 50%;
 }
+
 .post-container {
     display: flex;
     flex-direction: row;
@@ -79,14 +80,16 @@
     border-radius: 10px;
     background-color: #404557;
 }
-.home-username{
+
+.home-username {
     font-weight: 500;
     font-size: 24px;
     color: white;
     margin-top: 12px;
     margin-bottom: 12px;
 }
-.friend-button{
+
+.friend-button {
     background-color: black;
     width: 60%;
     height: 54px;
@@ -97,6 +100,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .post-pfp-container {
     display: flex;
     flex-direction: column;
@@ -123,8 +127,7 @@
 
 .textarea-container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
 
     width: 100%;
     height: 170px;
@@ -139,7 +142,8 @@
     border: 0px;
     resize: none;
     text-decoration: none;
-    outline: none; /* Verwijdert de focus outline */
+    outline: none;
+    /* Verwijdert de focus outline */
 }
 
 .textarea-post:focus {
@@ -220,7 +224,8 @@
     color: white;
     transition: 0.5s;
 }
-.friends-area-home{
+
+.friends-area-home {
     background-color: #404557;
     width: 85%;
     border-radius: 20px;
@@ -231,15 +236,17 @@
     bottom: 0;
     overflow-x: hidden;
 }
+
 .friends-area-home::-webkit-scrollbar-thumb {
     border: 4px solid transparent;
     border-radius: 8px;
-    background-clip: padding-box;  
-  }
-  
-  .friends-area-home::-webkit-scrollbar {
+    background-clip: padding-box;
+}
+
+.friends-area-home::-webkit-scrollbar {
     width: 16px;
-  }
+}
+
 /*RIGHT SIDE */
 .right-home {
     width: 25%;
@@ -308,9 +315,9 @@
     flex-direction: row;
 
     transition-duration: 0.2s;
-  }
+}
 
-  .pfp-friendslist{
+.pfp-friendslist {
     width: 100%;
     border-radius: 50px;
 }
@@ -346,7 +353,7 @@
 
 /* signUpScreen */
 
-.signUpbg{
+.signUpbg {
     width: 100%;
     height: 100vh;
     background-color: #2A2D39;
@@ -354,7 +361,8 @@
     justify-content: center;
     align-items: center;
 }
-.signUpContainer{
+
+.signUpContainer {
     width: 35%;
     height: 80%;
     background-color: #404557;
@@ -365,16 +373,19 @@
     flex-direction: column;
 
 }
-.signInForm{
+
+.signInForm {
     display: flex;
     flex-direction: column;
     margin-top: 56px;
 }
-label{
+
+label {
     font-weight: 600;
     font-size: 20px;
 }
-.inputField{
+
+.inputField {
     padding-left: 9px;
     padding-right: 9px;
     padding-top: 8px;
@@ -383,10 +394,11 @@ label{
     background-color: #2A2D39;
     border: 0px;
     width: 250px;
-    height: 19px;   
+    height: 19px;
     margin-bottom: 24px;
 }
-.submitButton{
+
+.submitButton {
     height: 42px;
     border-radius: 5px;
     border: none;
@@ -396,7 +408,8 @@ label{
     font-weight: 700;
     transition-duration: 0.2s;
 }
-.submitButton:hover{
+
+.submitButton:hover {
     color: white;
     background-color: #1C1D21;
     cursor: pointer;
