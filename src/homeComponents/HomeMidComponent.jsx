@@ -21,7 +21,7 @@ const HomeMidComponent = () => {
     }
 
     // const storageRef = ref(storage, `/files/${file.name}`);
-    const storageRef = ref(storage, `/files/${userID}/${file.name}`);
+    const storageRef = ref(storage, `/files/${user.userID}/${file.name}`);
 
     // progress can be paused and resumed. It also exposes progress updates.
     // Receives the storage reference and the file to upload.
