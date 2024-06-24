@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './homeComponents/Home';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
+import Profile from './Profile'
 import { UserProvider } from './UserContext';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<LogIn />} />
+          <Route path='/profile' element={<Profile/>} />
         </Routes>
       </div>
     </UserProvider>
