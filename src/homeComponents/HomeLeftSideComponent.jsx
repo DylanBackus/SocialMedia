@@ -8,10 +8,8 @@ import { ref, getDownloadURL } from "firebase/storage";
 const HomeLeftSideComponent = () => {
   const [userData, setUserData] = useState(null);
   const [userID, setUserID] = useState();
-const [pfpRef, setPfpRef] = useState();
-
-  const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG");
-  const user = auth.currentUser;
+  const [pfpRef, setPfpRef] = useState();
+  const [user, setUser] = useState();
   
   const getImage = () => {
     console.log(storage);
@@ -48,6 +46,10 @@ const [pfpRef, setPfpRef] = useState();
     }
   }
   useEffect(() => {
+    
+  // const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG");
+  setUser(auth.currentUser);
+  console.log(auth);
     getData();
     getImage();
   }, []);
@@ -62,10 +64,7 @@ const [pfpRef, setPfpRef] = useState();
 
 
   
-  if (user !== null) {
-    const uid = user.uid;
-    console.log(user)
-  }
+
   return (
     <>
       <div className="main-left">
@@ -73,7 +72,7 @@ const [pfpRef, setPfpRef] = useState();
           <button onClick={LogOut}> LOG OUT GANG</button>
           <img src={pfpRef} className="pfp" />
           <p className="home-username">
-            @{user && user.uid}
+            @{!user.uid ? '...' : user.uid}
           </p>
           <div className="row">
             <div className="profile-icon">
