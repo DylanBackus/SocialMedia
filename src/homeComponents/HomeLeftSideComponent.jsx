@@ -54,6 +54,7 @@ const HomeLeftSideComponent = () => {
     console.log(auth);
     getData();
     getImage();
+    console.log(userC);
   }, []);
 
   const LogOut = async () => {
@@ -68,8 +69,6 @@ const HomeLeftSideComponent = () => {
 
   return (
     <>
-      <p>{userC}</p>
-      <button onClick={() => setNewUser({user: })}>Change State</button>
 
 
 

@@ -9,7 +9,7 @@ const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const{ user, setUser } = useContext(useUserContext);
+  const { userC, setNewUser } = useUserContext();
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -18,7 +18,6 @@ const LogIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        setUser(user);
         console.log(user); // Debugging: gebruiker wordt getoond in console
         navigate("/");
       })
@@ -47,9 +46,10 @@ const LogIn = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={() => setUser({ name: "John Doe" })}>
-            Set User
-          </button>
+                <p>{userC}</p>
+
+          <button onClick={() => setNewUser({test: "test" })}>Change State</button>
+
           {error && <p>{error}</p>}
         </form>
       </div>
