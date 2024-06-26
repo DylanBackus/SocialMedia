@@ -3,7 +3,7 @@ import { db, auth, storage } from "../firebase/FirebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-const HomeMidComponent = ({size}) => {
+const HomeMidComponent = () => {
   const [file, setFile] = useState("");
   const [userID, setUserID] = useState();
 
@@ -49,7 +49,7 @@ const HomeMidComponent = ({size}) => {
 
   return (
     <>
-      <div className={size}>
+      <div className="mid-home-profile">
         <div className="post-container">
           <div className="post-pfp-container">
             <div className="pfp-post">
