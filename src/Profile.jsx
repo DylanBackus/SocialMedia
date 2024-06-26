@@ -1,10 +1,9 @@
 import React from "react";
-import HomeLeftSideComponent from "./HomeLeftSideComponent";
-import HomeMidComponent from "./HomeMidComponent";
-import HomeRightSideComponent from "./HomeRightSideComponent";
-import { db, auth } from '../firebase/FirebaseConfig';
+import HomeLeftSideComponent from "./homeComponents/HomeLeftSideComponent";
+import { db, auth } from './firebase/FirebaseConfig';
 import { onAuthStateChanged } from "firebase/auth";
-const Home = () => {
+
+const Profile = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             // User is signed in, see docs for a list of available properties
@@ -17,11 +16,6 @@ const Home = () => {
     });
     return (
         <>
-            <div className="home-container">
-                <HomeLeftSideComponent />
-                <HomeMidComponent />
-                <HomeRightSideComponent />
-            </div>
         </>
     )
 }

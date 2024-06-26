@@ -5,6 +5,7 @@ import React, { createContext, useState } from 'react';
 import Home from './homeComponents/Home';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
+import Profile from './Profile'
 import { UserProvider } from './UserContext';
 
 // const MyContext = createContext();
@@ -21,17 +22,16 @@ import { UserProvider } from './UserContext';
 
 function App() {
   return (
-
-      <UserProvider>
-        <div className="app">
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/signup' element={<SignUp />} />
-            <Route path='/login' element={<LogIn />} />
-          </Routes>
-        </div>
-      </UserProvider>
-
+    <UserProvider>
+      <div className="app">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/profile' element={<Profile/>} />
+        </Routes>
+      </div>
+    </UserProvider>
   );
 }
 
