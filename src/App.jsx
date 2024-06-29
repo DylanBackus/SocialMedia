@@ -1,24 +1,14 @@
 // App.jsx
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import React, { createContext, useState } from 'react';
+import React from 'react';
 import Home from './homeComponents/Home';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
-import Profile from './Profile'
+import Profile from './Profile';
 import { UserProvider } from './UserContext';
-
-// const MyContext = createContext();
-
-// const MyProvider = ({ children }) => {
-//   const [state, setState] = useState("Initial State");
-
-//   return (
-//     <MyContext.Provider value={{ state, setState }}>
-//       {children}
-//     </MyContext.Provider>
-//   );
-// };
+import CreatePost from './CreatePost';
+import Posts from './Posts';
 
 function App() {
   return (
@@ -26,9 +16,10 @@ function App() {
       <div className="app">
         <Routes>
           <Route path='/' element={<Home />} />
+          {/* <Route path='/create-post' element={<><CreatePost /><Posts /></>} /> ff test voor die glitch */}
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<LogIn />} />
-          <Route path='/profile' element={<Profile/>} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </div>
     </UserProvider>
@@ -36,4 +27,3 @@ function App() {
 }
 
 export default App;
-
