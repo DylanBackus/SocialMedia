@@ -23,7 +23,7 @@ const Posts = () => {
       {posts.map((post) => (
         <div key={post.id} className="post">
           <div className="post-header">
-            <div className="profile-pic-placeholder">@username</div>
+            <div className="username">@{post.username}</div>
           </div>
           {post.imageUrl && <img src={post.imageUrl} alt="Post" className="post-image" />}
           <div className="post-text">{post.text}</div>
