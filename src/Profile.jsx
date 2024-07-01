@@ -1,5 +1,7 @@
 import React from "react";
 import HomeLeftSideComponent from "./homeComponents/HomeLeftSideComponent";
+import HomeMidComponent from "./homeComponents/HomeMidComponent";
+
 import { db, auth } from './firebase/FirebaseConfig';
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -16,6 +18,10 @@ const Profile = () => {
     });
     return (
         <>
+            <div className="home-container">
+                <HomeLeftSideComponent />
+                <HomeMidComponent />
+            </div>
         </>
     )
 }
