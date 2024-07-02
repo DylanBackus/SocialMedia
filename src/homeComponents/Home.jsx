@@ -21,7 +21,7 @@ const Home = () => {
     <>
       <div className="home-container">
         <HomeLeftSideComponent />
-        <HomeMidComponent />
+        <HomeMidComponent size='mid-home'/>
         <HomeRightSideComponent/>
       </div>
     </>
