@@ -9,7 +9,7 @@ const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const { userC, setNewUser } = useUserContext();
+  const {userInfoContext, setNewUser } = useUserContext();
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -18,7 +18,9 @@ const LogIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user); // Debugging: gebruiker wordt getoond in console
+        setNewUser((prevState) => ({
+          ...prevState, user: user
+        })); // Debugging: gebruiker wordt getoond in console
         navigate("/");
       })
       .catch((error) => {
@@ -46,9 +48,8 @@ const LogIn = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-                <p>{userC}</p>
 
-          <button onClick={() => setNewUser({test: "test" })}>Change State</button>
+          <button>Change State</button>
 
           {error && <p>{error}</p>}
         </form>
