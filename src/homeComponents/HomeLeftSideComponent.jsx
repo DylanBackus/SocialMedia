@@ -76,7 +76,7 @@ const HomeLeftSideComponent = () => {
         <div className="profile-area">
           <p>{userInfoContext && userInfoContext}</p>
           <button onClick={() => console.log(userInfoContext)}>test</button>
-          <button onClick={LogOut}> LOG OUT GANG</button>
+          <button onClick={LogOut}> LOG OUT</button>
           <img src={pfpRef} className="pfp" />
           <p className="home-username">@</p>
           <div className="row">

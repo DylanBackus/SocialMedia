@@ -3,6 +3,8 @@ import { createUserWithEmailAndPassword, updateProfile  } from "firebase/auth";
 import { auth, db, storage } from "./firebase/FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore"; 
 import { ref, uploadBytes } from "firebase/storage";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { Navigate } from "react-router-dom";
 
 
 const SignUp = () => {    
@@ -46,7 +48,20 @@ const SignUp = () => {
             console.log(errorMessage)
         });
     };
-
+    const provider = new GoogleAuthProvider();
+    const SignUpWithPopUp = (event) => {
+        signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.customData.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+    });
+    }
     return (
         <>
             <div className="signUpbg">
@@ -81,6 +96,7 @@ const SignUp = () => {
                             Sign Up
                         </button>
                     </form>
+                    <button onClick={SignUpWithPopUp}>Sign in with Google</button>
                 </div>
             </div>
         </>
