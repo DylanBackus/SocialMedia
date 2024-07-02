@@ -16,8 +16,8 @@ const SignUp = () => {
                 email: mail,
                 name: user,
                 profilePicture: profilePic.name,
-
             });
+            await setCol
             console.log("Data saved successfully!");
     };
     const handleChange = (event) => {

@@ -11,7 +11,7 @@ const HomeLeftSideComponent = () => {
   const [userID, setUserID] = useState();
   const [pfpRef, setPfpRef] = useState();
   const [user, setUser] = useState();
-  const { userC, setNewUser } = useUserContext();
+  const { userInfoContext, setNewUser } = useUserContext();
   
 
   const getImage = () => {
@@ -51,10 +51,10 @@ const HomeLeftSideComponent = () => {
   useEffect(() => {
     // const docRef = doc(db, "users", "Q3LricYjI89T1CmqlBoG");
     setUser(auth.currentUser);
-    console.log(auth);
+    console.log(auth.currentUser);
     getData();
     getImage();
-    console.log(userC);
+
   }, []);
 
   const LogOut = async () => {
@@ -74,6 +74,8 @@ const HomeLeftSideComponent = () => {
 
       <div className="main-left">
         <div className="profile-area">
+          <p>{userInfoContext && userInfoContext}</p>
+          <button onClick={() => console.log(userInfoContext)}>test</button>
           <button onClick={LogOut}> LOG OUT GANG</button>
           <img src={pfpRef} className="pfp" />
           <p className="home-username">@</p>
