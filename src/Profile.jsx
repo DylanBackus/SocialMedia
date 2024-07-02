@@ -1,28 +1,46 @@
-import React from "react";
-import HomeLeftSideComponent from "./homeComponents/HomeLeftSideComponent";
-import HomeMidComponent from "./homeComponents/HomeMidComponent";
-
+import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import { db, auth } from './firebase/FirebaseConfig';
-import { onAuthStateChanged } from "firebase/auth";
+import { collection, query, where, onSnapshot } from 'firebase/firestore';
+import HomeLeftSideComponent from "./homeComponents/HomeLeftSideComponent";
 
 const Profile = () => {
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/auth.user
-            const uid = user.uid;
-            // ...
-        } else {
-            window.location = "signup"
-        }
+  const { username } = useParams();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const q = query(collection(db, 'post/post/posts'), where('username', '==', username));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const postsData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setPosts(postsData);
     });
-    return (
-        <>
-            <div className="home-container">
-                <HomeLeftSideComponent />
-                <HomeMidComponent />
-            </div>
-        </>
-    )
-}
-export default Profile
+
+    return () => unsubscribe();
+  }, [username]);
+
+  return (
+    <>
+      <div className="home-container">
+        <HomeLeftSideComponent />
+        <div className="home-mid-component">
+          <div className="posts-section">
+            {posts.map((post) => (
+              <div key={post.id} className="post">
+                <div className="post-header">
+                  <div className="username">@{post.username}</div>
+                </div>
+                {post.imageUrl && <img src={post.imageUrl} alt="Post" className="post-image" />}
+                <div className="post-text">{post.text}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Profile;
