@@ -15,10 +15,9 @@ function App() {
       <div className="app">
         <Routes>
           <Route path='/' element={<Home />} />
-          {/* <Route path='/create-post' element={<><CreatePost /><Posts /></>} /> ff test voor die glitch */}
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<LogIn />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile/:username' element={<Profile />} />
         </Routes>
       </div>
     </UserProvider>

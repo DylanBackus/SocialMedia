@@ -578,6 +578,7 @@ label {
 }
 
 .username {
+    cursor: pointer;
     font-size: 14px;
     font-weight: bold;
     color: #1da1f2;
