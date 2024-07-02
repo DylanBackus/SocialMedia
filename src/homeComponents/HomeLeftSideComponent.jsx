@@ -54,7 +54,7 @@ const HomeLeftSideComponent = () => {
     console.log(auth.currentUser);
     getData();
     getImage();
-
+    
   }, []);
 
   const LogOut = async () => {

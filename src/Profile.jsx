@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { db, auth } from './firebase/FirebaseConfig';
 import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import HomeLeftSideComponent from "./homeComponents/HomeLeftSideComponent";
+import HomeRightSideComponent from "./homeComponents/HomeRightSideComponent";
 
 const Profile = () => {
   const { username } = useParams();
@@ -16,6 +17,7 @@ const Profile = () => {
         ...doc.data(),
       }));
       setPosts(postsData);
+      setUser(auth.currentUser);
     });
 
     return () => unsubscribe();
@@ -25,6 +27,7 @@ const Profile = () => {
     <>
       <div className="home-container">
         <HomeLeftSideComponent />
+        
         <div className="home-mid-component">
           <div className="posts-section">
             {posts.map((post) => (
@@ -37,7 +40,10 @@ const Profile = () => {
               </div>
             ))}
           </div>
+          
         </div>
+        <HomeRightSideComponent />
+
       </div>
     </>
   );
